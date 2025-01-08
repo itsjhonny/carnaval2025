@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnaval 2025 | Rio de Janeiro e São Paulo</title>
     <meta name="author" content="Seu Nome ou Nome da Organização">
     <meta name="description"
         content="Programação completa dos desfiles das escolas de samba do Rio de Janeiro e São Paulo para o Carnaval 2025. Confira datas, horários e informações sobre cada escola.">
@@ -21,440 +22,407 @@
     <meta name="twitter:description"
         content="Calendário completo dos desfiles das escolas de samba de Rio de Janeiro e São Paulo para o Carnaval 2025.">
     <meta name="twitter:image" content="https://www.seusite.com.br/assets/background.jpg">
-
-    <title>Desfiles das Escolas de Samba 2025 | Carnaval no Rio e São Paulo</title>
-
     <!-- Ícone da Página -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-
-
     <!-- Font Awesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
-        crossorigin="anonymous"></script>
-
-    <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-    <!-- Pré-carregamento -->
-    <link rel="preload" href="./background.jpg" as="image">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilo Geral do Body */
         body {
-            background-image: url('./background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #fff;
-            /* Texto padrão branco para melhor contraste */
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9fafb;
         }
 
-        /* Header */
-        .header-bg {
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding: 4rem 0;
+        /* Animação de Confete */
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
-        .header-overlay {
-            position: absolute;
+        .confetti {
+            position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            /* Escurece para melhor legibilidade */
-            z-index: 1;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #f59e0b;
+            opacity: 0;
+            animation: confetti-fall 5s linear infinite;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            color: #fff;
-            z-index: 2;
-            position: relative;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        /* Adicionar múltiplos confetes com diferentes delays e cores */
+        .confetti:nth-child(1) {
+            left: 10%;
+            background-color: #f59e0b;
+            animation-delay: 0s;
         }
 
-        /* Barra de Busca */
-        #searchForm {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 2;
+        .confetti:nth-child(2) {
+            left: 20%;
+            background-color: #ef4444;
+            animation-delay: 1s;
         }
 
-        #searchInput {
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 25px 0 0 25px;
-            font-size: 1rem;
-            flex: 1;
-            max-width: 400px;
+        .confetti:nth-child(3) {
+            left: 30%;
+            background-color: #10b981;
+            animation-delay: 2s;
         }
 
-        #searchForm button {
-            background-color: #FBBF24;
-            /* Amarelo vibrante */
-            color: #fff;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0 25px 25px 0;
-            font-size: 1rem;
-            cursor: pointer;
-            border: none;
-            transition: background-color 0.3s;
+        .confetti:nth-child(4) {
+            left: 40%;
+            background-color: #3b82f6;
+            animation-delay: 3s;
         }
 
-        #searchForm button:hover {
-            background-color: #F59E0B;
-            /* Amarelo mais escuro */
+        .confetti:nth-child(5) {
+            left: 50%;
+            background-color: #8b5cf6;
+            animation-delay: 4s;
         }
 
-        /* Título da Seção */
-        h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 3rem;
-            text-align: center;
-            color: #48BB78;
-            /* Verde vibrante */
+        .confetti:nth-child(6) {
+            left: 60%;
+            background-color: #f43f5e;
+            animation-delay: 0.5s;
         }
 
-        /* Título dos Grupos */
-        h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #E53E3E;
-            /* Vermelho vibrante */
+        .confetti:nth-child(7) {
+            left: 70%;
+            background-color: #ec4899;
+            animation-delay: 1.5s;
         }
 
-        /* Cartões das Escolas */
-        .school {
-            background: rgba(255, 255, 255, 0.9);
-            /* Fundo branco com leve transparência */
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+        .confetti:nth-child(8) {
+            left: 80%;
+            background-color: #14b8a6;
+            animation-delay: 2.5s;
         }
 
-        .school:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        .confetti:nth-child(9) {
+            left: 90%;
+            background-color: #f97316;
+            animation-delay: 3.5s;
         }
 
-        /* Título das Escolas */
-        .school h4 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #DC2626;
-            /* Vermelho mais escuro */
-        }
-
-        /* Texto das Datas e Horários */
-        .school p {
-            font-size: 0.9rem;
-            color: #4A5568;
-            /* Cinza escuro */
-        }
-
-        /* Destaque na Busca */
-        .school.highlight {
-            border: 2px solid #F59E0B;
-            /* Borda amarela vibrante */
-            background-color: #FEF9C3;
-            /* Fundo amarelo claro */
-        }
-
-        /* Rodapé */
-        footer {
-            margin-top: 3rem;
-            background-color: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            color: #E2E8F0;
-            /* Cinza claro */
+        .confetti:nth-child(10) {
+            left: 100%;
+            background-color: #e879f9;
+            animation-delay: 4.5s;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body>
+
+    <!-- Animação de Confete -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div>
+                <a href="#" class="text-xl font-bold text-yellow-500">Carnaval 2025</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#rio-section" class="text-gray-700 hover:text-yellow-500">Rio de Janeiro</a>
+                <a href="#sp-section" class="text-gray-700 hover:text-yellow-500">São Paulo</a>
+                <a href="#historia" class="text-gray-700 hover:text-yellow-500">História</a>
+                <a href="#galeria" class="text-gray-700 hover:text-yellow-500">Galeria</a>
+                <a href="#dicas" class="text-gray-700 hover:text-yellow-500">Dicas</a>
+            </div>
+            <!-- Menu Mobile -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Dropdown Mobile -->
+        <div id="menu" class="hidden md:hidden">
+            <a href="#rio-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">Rio de Janeiro</a>
+            <a href="#sp-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">São Paulo</a>
+            <a href="#historia" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">História</a>
+            <a href="#galeria" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">Galeria</a>
+            <a href="#dicas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">Dicas</a>
+        </div>
+    </nav>
 
     <!-- Cabeçalho -->
-    <header class="header-bg h-80 flex flex-col items-center justify-center text-center relative overflow-hidden">
-        <div class="header-overlay"></div>
-        <h1 class="text-4xl md:text-6xl font-bold text-white z-10 px-4 py-2 rounded">
-            Desfiles das Escolas de Samba 2025
-        </h1>
-
-        <!-- Barra de Busca -->
-        <div class="mt-8 w-full max-w-md z-10">
-            <form id="searchForm" class="flex">
-                <input type="text" id="searchInput" placeholder="Digite o nome da escola..."
-                    class="flex-grow p-2 rounded-l-lg focus:outline-none text-gray-800" />
-                <button type="submit"
-                    class="bg-yellow-500 text-white px-4 py-2 rounded-r-lg hover:bg-yellow-600 transition-colors">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-            <p id="searchMessage" class="mt-2 text-red-500 hidden">Escola não encontrada. Por favor, verifique o nome.
-            </p>
+    <header class="relative bg-cover bg-center h-screen"
+        style="background-image: url('https://source.unsplash.com/1920x1080/?carnival');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold drop-shadow-lg">Carnaval 2025</h1>
+            <p class="mt-4 text-xl md:text-2xl drop-shadow-lg">Rio de Janeiro e São Paulo</p>
+            <!-- Barra de Busca -->
+            <div class="mt-8 w-full max-w-md">
+                <form id="searchForm" class="flex">
+                    <input type="text" id="searchInput" placeholder="Digite o nome da escola..."
+                        class="flex-grow p-2 rounded-l-lg focus:outline-none text-gray-800" />
+                    <button type="submit"
+                        class="bg-yellow-500 text-white px-4 py-2 rounded-r-lg hover:bg-yellow-600 transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <p id="searchMessage" class="mt-2 text-red-500 hidden">Escola não encontrada. Por favor, verifique o
+                    nome.
+                </p>
+            </div>
         </div>
-
-        <!-- Animação de Confete (Opcional) -->
-        <!-- Você pode adicionar scripts ou elementos para gerar confetes aqui -->
     </header>
 
     <!-- Conteúdo Principal -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-6 py-12">
 
         <!-- Seção Rio de Janeiro -->
-        <section id="rio-section" class="mb-12">
-            <h2 class="text-3xl font-semibold mb-6 text-white-600">Rio de Janeiro</h2>
+        <section id="rio-section" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-yellow-600 mb-8">🎭 Rio de Janeiro</h2>
 
             <!-- Grupo Especial -->
-            <h3 class="text-2xl font-semibold mb-4 text-white-600">Grupo Especial</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Exemplo de Cartão de Escola -->
-                <div data-name="beija-flor"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Beija-Flor</h4>
-                    <p class="text-gray-600">Data: 20 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Adicione mais escolas do Grupo Especial aqui -->
-                <div data-name="salgueiro"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Salgueiro</h4>
-                    <p class="text-gray-600">Data: 21 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="imperatriz-leopoldinense"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Imperatriz Leopoldinense</h4>
-                    <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="mangueira"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Mangueira</h4>
-                    <p class="text-gray-600">Data: 23 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="portela"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Portela</h4>
-                    <p class="text-gray-600">Data: 24 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="unidos-da-tijuca"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Unidos da Tijuca</h4>
-                    <p class="text-gray-600">Data: 25 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="unidos-do-viradouro"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Unidos do Viradouro</h4>
-                    <p class="text-gray-600">Data: 26 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="mocidade-independente-de-padre-miguel"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Independente de Padre Miguel</h4>
-                    <p class="text-gray-600">Data: 27 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="academicos-do-grande-rio"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Grande Rio</h4>
-                    <p class="text-gray-600">Data: 28 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="grande-rio"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Grande Rio</h4>
-                    <p class="text-gray-600">Data: 01 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <div data-name="academicos-do-salgueiro"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Salgueiro</h4>
-                    <p class="text-gray-600">Data: 02 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-red-600 mb-4">Grupo Especial</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Cartão de Escola -->
+                    <div data-name="beija-flor"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Beija-Flor</h4>
+                        <p class="text-gray-600">Data: 20 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="salgueiro"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Salgueiro</h4>
+                        <p class="text-gray-600">Data: 21 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="imperatriz-leopoldinense"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Imperatriz Leopoldinense</h4>
+                        <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="mangueira"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Mangueira</h4>
+                        <p class="text-gray-600">Data: 23 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="portela"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Portela</h4>
+                        <p class="text-gray-600">Data: 24 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="unidos-da-tijuca"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Unidos da Tijuca</h4>
+                        <p class="text-gray-600">Data: 25 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="unidos-do-viradouro"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Unidos do Viradouro</h4>
+                        <p class="text-gray-600">Data: 26 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="mocidade-independente-de-padre-miguel"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Independente de Padre Miguel</h4>
+                        <p class="text-gray-600">Data: 27 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="academicos-do-grande-rio"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Grande Rio</h4>
+                        <p class="text-gray-600">Data: 28 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="grande-rio"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Grande Rio</h4>
+                        <p class="text-gray-600">Data: 01 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <div data-name="academicos-do-salgueiro"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Salgueiro</h4>
+                        <p class="text-gray-600">Data: 02 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Grupo de Acesso 1 -->
-            <h3 class="text-2xl font-semibold mb-4 text-yellow-600">Grupo de Acesso 1</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Império Serrano -->
-                <div data-name="imperio-serrano"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Império Serrano</h4>
-                    <p class="text-gray-600">Data: 03 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Acadêmicos do Salgueiro -->
-                <div data-name="academicos-do-salgueiro-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Acadêmicos do Salgueiro</h4>
-                    <p class="text-gray-600">Data: 04 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- União da Ilha -->
-                <div data-name="uniao-da-ilha-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">União da Ilha</h4>
-                    <p class="text-gray-600">Data: 05 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Império de Casa Verde -->
-                <div data-name="imperio-de-casa-verde-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Império de Casa Verde</h4>
-                    <p class="text-gray-600">Data: 06 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos da Paz -->
-                <div data-name="unidos-da-paz-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Paz</h4>
-                    <p class="text-gray-600">Data: 07 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos da Providência -->
-                <div data-name="unidos-da-providencia-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Providência</h4>
-                    <p class="text-gray-600">Data: 08 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos da Tijuca -->
-                <div data-name="unidos-da-tijuca-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Tijuca</h4>
-                    <p class="text-gray-600">Data: 09 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos de Casa Verde -->
-                <div data-name="unidos-de-casa-verde-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos de Casa Verde</h4>
-                    <p class="text-gray-600">Data: 10 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos de Casa Nova -->
-                <div data-name="unidos-de-casa-nova-acesso1"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos de Casa Nova</h4>
-                    <p class="text-gray-600">Data: 11 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Unidos da Providência (Acesso 1) -->
-                <div data-name="unidos-da-providencia-acesso1-duplicate"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Providência</h4>
-                    <p class="text-gray-600">Data: 12 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-yellow-600 mb-4">Grupo de Acesso 1</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Império Serrano -->
+                    <div data-name="imperio-serrano"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Império Serrano</h4>
+                        <p class="text-gray-600">Data: 03 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Acadêmicos do Salgueiro -->
+                    <div data-name="academicos-do-salgueiro-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Acadêmicos do Salgueiro</h4>
+                        <p class="text-gray-600">Data: 04 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- União da Ilha -->
+                    <div data-name="uniao-da-ilha-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">União da Ilha</h4>
+                        <p class="text-gray-600">Data: 05 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Império de Casa Verde -->
+                    <div data-name="imperio-de-casa-verde-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Império de Casa Verde</h4>
+                        <p class="text-gray-600">Data: 06 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos da Paz -->
+                    <div data-name="unidos-da-paz-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Paz</h4>
+                        <p class="text-gray-600">Data: 07 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos da Providência -->
+                    <div data-name="unidos-da-providencia-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Providência</h4>
+                        <p class="text-gray-600">Data: 08 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos da Tijuca -->
+                    <div data-name="unidos-da-tijuca-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Tijuca</h4>
+                        <p class="text-gray-600">Data: 09 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos de Casa Verde -->
+                    <div data-name="unidos-de-casa-verde-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos de Casa Verde</h4>
+                        <p class="text-gray-600">Data: 10 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos de Casa Nova -->
+                    <div data-name="unidos-de-casa-nova-acesso1"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos de Casa Nova</h4>
+                        <p class="text-gray-600">Data: 11 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Unidos da Providência (Acesso 1) -->
+                    <div data-name="unidos-da-providencia-acesso1-duplicate"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Unidos da Providência</h4>
+                        <p class="text-gray-600">Data: 12 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
                 </div>
             </div>
 
             <!-- Grupo de Acesso 2 -->
-            <h3 class="text-2xl font-semibold mb-4 text-purple-600">Grupo de Acesso 2</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Cordão da Bola Preta -->
-                <div data-name="cordao-da-bola-preta"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Cordão da Bola Preta</h4>
-                    <p class="text-gray-600">Data: 13 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Cidade Maravilhosa -->
-                <div data-name="cidade-maravilhosa"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Cidade Maravilhosa</h4>
-                    <p class="text-gray-600">Data: 14 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Barra da Tijuca -->
-                <div data-name="barra-da-tijuca"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Barra da Tijuca</h4>
-                    <p class="text-gray-600">Data: 15 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- União da Lagoa -->
-                <div data-name="uniao-da-lagoa"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">União da Lagoa</h4>
-                    <p class="text-gray-600">Data: 16 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Jequié -->
-                <div data-name="jequie"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Jequié</h4>
-                    <p class="text-gray-600">Data: 17 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Rosa dos Ventos -->
-                <div data-name="rosa-dos-ventos"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Rosa dos Ventos</h4>
-                    <p class="text-gray-600">Data: 18 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Unidos do Catete -->
-                <div data-name="unidos-do-catete"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Unidos do Catete</h4>
-                    <p class="text-gray-600">Data: 19 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Raça -->
-                <div data-name="raca"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Raça</h4>
-                    <p class="text-gray-600">Data: 20 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Três Corações -->
-                <div data-name="tres-coracoes"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Três Corações</h4>
-                    <p class="text-gray-600">Data: 21 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
-                </div>
-                <!-- Renascer -->
-                <div data-name="renascer"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-purple-500">Renascer</h4>
-                    <p class="text-gray-600">Data: 22 de Março de 2025</p>
-                    <p class="text-gray-600">Horário: 19:00</p>
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-purple-600 mb-4">Grupo de Acesso 2</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Cordão da Bola Preta -->
+                    <div data-name="cordao-da-bola-preta"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Cordão da Bola Preta</h4>
+                        <p class="text-gray-600">Data: 13 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Cidade Maravilhosa -->
+                    <div data-name="cidade-maravilhosa"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Cidade Maravilhosa</h4>
+                        <p class="text-gray-600">Data: 14 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Barra da Tijuca -->
+                    <div data-name="barra-da-tijuca"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Barra da Tijuca</h4>
+                        <p class="text-gray-600">Data: 15 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- União da Lagoa -->
+                    <div data-name="uniao-da-lagoa"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">União da Lagoa</h4>
+                        <p class="text-gray-600">Data: 16 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Jequié -->
+                    <div data-name="jequie"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Jequié</h4>
+                        <p class="text-gray-600">Data: 17 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Rosa dos Ventos -->
+                    <div data-name="rosa-dos-ventos"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Rosa dos Ventos</h4>
+                        <p class="text-gray-600">Data: 18 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Unidos do Catete -->
+                    <div data-name="unidos-do-catete"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Unidos do Catete</h4>
+                        <p class="text-gray-600">Data: 19 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Raça -->
+                    <div data-name="raca"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Raça</h4>
+                        <p class="text-gray-600">Data: 20 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Três Corações -->
+                    <div data-name="tres-coracoes"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Três Corações</h4>
+                        <p class="text-gray-600">Data: 21 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
+                    <!-- Renascer -->
+                    <div data-name="renascer"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-purple-500">Renascer</h4>
+                        <p class="text-gray-600">Data: 22 de Março de 2025</p>
+                        <p class="text-gray-600">Horário: 19:00</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -462,165 +430,278 @@
         <script async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
             crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gw-3+1f-3d+2z"
-            data-ad-client="ca-pub-7332452248090927" data-ad-slot="8910808614"></ins>
+        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+            data-ad-format="fluid" data-ad-client="ca-pub-7332452248090927" data-ad-slot="5869712304"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
 
         <!-- Seção São Paulo -->
-        <section id="sp-section" class="mb-12">
-            <h2 class="text-3xl font-semibold mb-6 text-green-600">São Paulo</h2>
+        <section id="sp-section" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-green-600 mb-8">🎷 São Paulo</h2>
 
             <!-- Grupo Especial -->
-            <h3 class="text-2xl font-semibold mb-4 text-red-600">Grupo Especial</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Mancha Verde -->
-                <div data-name="mancha-verde-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Mancha Verde</h4>
-                    <p class="text-gray-600">Data: 10 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-red-600 mb-4">Grupo Especial</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Mancha Verde -->
+                    <div data-name="mancha-verde-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Mancha Verde</h4>
+                        <p class="text-gray-600">Data: 10 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Mocidade Alegre -->
+                    <div data-name="mocidade-alegre-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Alegre</h4>
+                        <p class="text-gray-600">Data: 11 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Mocidade Independente de Padre Miguel (São Paulo) -->
+                    <div data-name="mocidade-independente-de-padre-miguel-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Independente de Padre Miguel</h4>
+                        <p class="text-gray-600">Data: 12 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Acadêmicos do Salgueiro São Paulo -->
+                    <div data-name="academicos-do-salgueiro-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Salgueiro</h4>
+                        <p class="text-gray-600">Data: 13 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Unidos da Tijuca São Paulo -->
+                    <div data-name="unidos-da-tijuca-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Unidos da Tijuca</h4>
+                        <p class="text-gray-600">Data: 14 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Imperial São Paulo -->
+                    <div data-name="imperial-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Imperial</h4>
+                        <p class="text-gray-600">Data: 15 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Império Serrano São Paulo -->
+                    <div data-name="imperio-serrano-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-red-500">Império Serrano</h4>
+                        <p class="text-gray-600">Data: 16 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 20:00</p>
+                    </div>
+                    <!-- Adicione mais escolas do Grupo Especial de São Paulo aqui -->
                 </div>
-                <!-- Mocidade Alegre -->
-                <div data-name="mocidade-alegre-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Alegre</h4>
-                    <p class="text-gray-600">Data: 11 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Mocidade Independente de Padre Miguel (São Paulo) -->
-                <div data-name="mocidade-independente-de-padre-miguel-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Mocidade Independente de Padre Miguel</h4>
-                    <p class="text-gray-600">Data: 12 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Acadêmicos do Salgueiro São Paulo -->
-                <div data-name="academicos-do-salgueiro-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Acadêmicos do Salgueiro</h4>
-                    <p class="text-gray-600">Data: 13 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Unidos da Tijuca São Paulo -->
-                <div data-name="unidos-da-tijuca-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Unidos da Tijuca</h4>
-                    <p class="text-gray-600">Data: 14 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Imperial São Paulo -->
-                <div data-name="imperial-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Imperial</h4>
-                    <p class="text-gray-600">Data: 15 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Império Serrano São Paulo -->
-                <div data-name="imperio-serrano-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-red-500">Império Serrano</h4>
-                    <p class="text-gray-600">Data: 16 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 20:00</p>
-                </div>
-                <!-- Adicione mais escolas do Grupo Especial de São Paulo aqui -->
             </div>
 
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
-                crossorigin="anonymous"></script>
-            <!-- display -->
+            <!-- Grupo de Acesso -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-yellow-600 mb-4">Grupo de Acesso</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Império Serrano São Paulo -->
+                    <div data-name="imperio-serrano-acesso-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Império Serrano</h4>
+                        <p class="text-gray-600">Data: 17 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Acadêmicos do Salgueiro São Paulo -->
+                    <div data-name="academicos-do-salgueiro-acesso-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">Acadêmicos do Salgueiro</h4>
+                        <p class="text-gray-600">Data: 18 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- União da Ilha São Paulo -->
+                    <div data-name="uniao-da-ilha-acesso-sp"
+                        class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2 text-yellow-500">União da Ilha</h4>
+                        <p class="text-gray-600">Data: 19 de Fevereiro de 2025</p>
+                        <p class="text-gray-600">Horário: 19:30</p>
+                    </div>
+                    <!-- Outros grupos de acesso de São Paulo podem ser adicionados aqui -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção História do Carnaval -->
+        <section id="historia" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-purple-600 mb-8">📜 História do Carnaval Brasileiro</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class=" md:pl-12 mt-6 md:mt-0">
+                    <p class="mb-4">
+                        O Carnaval é uma das festas mais antigas e tradicionais do Brasil, com raízes que remontam às
+                        celebrações
+                        europeias trazidas pelos colonizadores. Com o passar do tempo, influências africanas e indígenas
+                        se
+                        mesclaram, criando uma manifestação cultural única e vibrante.
+                    </p>
+                    <p class="mb-4">
+                        Originalmente, o Carnaval era uma festa de rua com desfiles de blocos e trios, mas, com o
+                        crescimento das
+                        cidades, especialmente no Rio de Janeiro e São Paulo, evoluiu para desfiles organizados de
+                        escolas de
+                        samba. Essas escolas competem com enredos elaborados, sambas-enredo envolventes, carros
+                        alegóricos impressionantes
+                        e fantasias deslumbrantes.
+                    </p>
+                    <p>
+                        Hoje, o Carnaval é reconhecido mundialmente como um símbolo da alegria, criatividade e
+                        diversidade do
+                        povo brasileiro, atraindo milhões de turistas que vêm de todas as partes do mundo para
+                        participar dessa grande
+                        celebração.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Dicas para Foliões -->
+        <section id="dicas" class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-green-600 mb-8">💡 Dicas para Foliões</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dica 1 -->
+                <div class="flex">
+                    <div class="text-yellow-500 mr-4">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Planeje seu Transporte</h3>
+                        <p>
+                            Utilize transporte público para evitar congestionamentos e garanta segurança. Considere usar
+                            aplicativos de transporte para deslocamentos noturnos.
+                        </p>
+                    </div>
+                </div>
+                <!-- Dica 2 -->
+                <div class="flex">
+                    <div class="text-red-500 mr-4">
+                        <i class="fas fa-hands-helping fa-2x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Segurança em Primeiro Lugar</h3>
+                        <p>
+                            Mantenha seus pertences sempre à vista e evite ostentar objetos de valor. Fique atento aos
+                            arredores
+                            e siga as orientações das autoridades locais.
+                        </p>
+                    </div>
+                </div>
+                <!-- Dica 3 -->
+                <div class="flex">
+                    <div class="text-purple-500 mr-4">
+                        <i class="fas fa-water fa-2x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Hidrate-se e Alimente-se Bem</h3>
+                        <p>
+                            O calor intenso do Carnaval pode levar à desidratação. Beba bastante água e consuma
+                            alimentos leves
+                            para manter a energia durante a folia.
+                        </p>
+                    </div>
+                </div>
+                <!-- Dica 4 -->
+                <div class="flex">
+                    <div class="text-blue-500 mr-4">
+                        <i class="fas fa-smile fa-2x"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">Divirta-se Responsavelmente</h3>
+                        <p>
+                            Aproveite cada momento do Carnaval com moderação. Respeite os outros foliões e contribua
+                            para um ambiente
+                            saudável e alegre para todos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Texto sobre o Carnaval -->
+        <section class="carnaval-text mb-16">
+            <h2 class="text-4xl font-bold text-center text-yellow-600 mb-8">🎉 A Magia do Carnaval Brasileiro</h2>
+            <div class="prose lg:prose-xl mx-auto">
+                <p>
+                    O Carnaval é uma das festas mais populares e vibrantes do Brasil, atraindo milhões de turistas todos
+                    os
+                    anos. Celebrado com desfiles espetaculares, música contagiante e fantasias deslumbrantes, o Carnaval
+                    é um
+                    verdadeiro espetáculo de cores e alegria.
+                </p>
+                <p>
+                    No Rio de Janeiro, os desfiles acontecem no Sambódromo Marquês de Sapucaí, onde escolas de samba
+                    renomadas como
+                    Beija-Flor, Mangueira e Salgueiro competem pelo título de campeã. Cada escola apresenta um enredo,
+                    sustentado por
+                    carros alegóricos grandiosos, fantasias elaboradas e sambas-enredo emocionantes.
+                </p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                    data-ad-format="fluid" data-ad-client="ca-pub-7332452248090927" data-ad-slot="7205144583"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>
+                    Em São Paulo, o Sambódromo do Anhembi se transforma no palco principal para as apresentações das
+                    escolas de
+                    samba. Grupos como Mancha Verde, Vai-Vai e Mocidade Alegre trazem suas histórias e tradições para o
+                    público,
+                    garantindo um espetáculo inesquecível.
+                </p>
+                <p>
+                    Além dos desfiles, o Carnaval é comemorado nas ruas com blocos carnavalescos, trios elétricos e
+                    foliões que
+                    transformam as cidades em verdadeiros palcos de festa. É uma celebração de cultura, arte e, acima de
+                    tudo, da
+                    paixão brasileira pela vida.
+                </p>
+                <p>
+                    Explore nosso site para conferir as datas, horários e detalhes de cada desfile. Viva a magia do
+                    Carnaval
+                    2025!
+                </p>
+            </div>
+        </section>
+
+        <!-- Anúncios (Opcional) -->
+        <div class="flex justify-center mb-16">
+            <!-- Exemplo de Anúncio -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7332452248090927"
                 data-ad-slot="9416374956" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-
-            <!-- Grupo de Acesso -->
-            <h3 class="text-2xl font-semibold mb-4 text-yellow-600">Grupo de Acesso</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Império Serrano São Paulo -->
-                <div data-name="imperio-serrano-acesso-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Império Serrano</h4>
-                    <p class="text-gray-600">Data: 17 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Acadêmicos do Salgueiro São Paulo -->
-                <div data-name="academicos-do-salgueiro-acesso-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">Acadêmicos do Salgueiro</h4>
-                    <p class="text-gray-600">Data: 18 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- União da Ilha São Paulo -->
-                <div data-name="uniao-da-ilha-acesso-sp"
-                    class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-                    <h4 class="text-xl font-bold mb-2 text-yellow-500">União da Ilha</h4>
-                    <p class="text-gray-600">Data: 19 de Fevereiro de 2025</p>
-                    <p class="text-gray-600">Horário: 19:30</p>
-                </div>
-                <!-- Outros grupos de acesso de São Paulo podem ser adicionados aqui -->
-            </div>
-        </section>
-
-        <!-- Texto sobre o Carnaval -->
-        <section class="carnaval-text">
-            <h2>🎭 A Magia do Carnaval Brasileiro</h2>
-            <p>
-                O Carnaval é uma das festas mais populares e vibrantes do Brasil, atraindo milhões de turistas todos os
-                anos.
-                Celebrado com desfiles espetaculares, música contagiante e fantasias deslumbrantes, o Carnaval é um
-                verdadeiro
-                espetáculo de cores e alegria.
-            </p>
-            <script async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
-                crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-                data-ad-format="fluid" data-ad-client="ca-pub-7332452248090927" data-ad-slot="3378709515"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <p>
-                No Rio de Janeiro, os desfiles acontecem no Sambódromo Marquês de Sapucaí, onde escolas de samba
-                renomadas como
-                Beija-Flor, Mangueira e Salgueiro competem pelo título de campeã. Cada escola apresenta um enredo,
-                sustentado por
-                carros alegóricos grandiosos, fantasias elaboradas e sambas-enredo emocionantes.
-            </p>
-            <p>
-                Em São Paulo, o Sambódromo do Anhembi se transforma no palco principal para as apresentações das escolas
-                de samba.
-                Grupos como Mancha Verde, Vai-Vai e Mocidade Alegre trazem suas histórias e tradições para o público,
-                garantindo
-                um espetáculo inesquecível.
-            </p>
-            <p>
-                Além dos desfiles, o Carnaval é comemorado nas ruas com blocos carnavalescos, trios elétricos e foliões
-                que
-                transformam as cidades em verdadeiros palcos de festa. É uma celebração de cultura, arte e, acima de
-                tudo, da
-                paixão brasileira pela vida.
-            </p>
-            <p>
-                Explore nosso site para conferir as datas, horários e detalhes de cada desfile. Viva a magia do Carnaval
-                2025!
-            </p>
-        </section>
+        </div>
 
     </main>
 
     <!-- Rodapé -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">
-            <p>&copy; 2025 Desfiles de Samba. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Carnaval Brasileiro. Todos os direitos reservados.</p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-yellow-500 mx-2">
+                    <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 mx-2">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-yellow-500 mx-2">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- JavaScript para a Barra de Busca -->
+    <!-- JavaScript para a Barra de Busca e Menu Mobile -->
     <script>
+        // Funcionalidade da Barra de Busca
         const searchInput = document.getElementById('searchInput');
         const searchMessage = document.getElementById('searchMessage');
         const schools = document.querySelectorAll('.school');
@@ -632,7 +713,7 @@
                 // Se a busca estiver vazia, exibe todas as escolas e remove destaque
                 schools.forEach(function (school) {
                     school.style.display = 'block';
-                    school.classList.remove('highlight');
+                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
                 });
                 searchMessage.classList.add('hidden');
                 return;
@@ -646,18 +727,18 @@
                     found = true;
                     // Exibe a escola correspondente e adiciona destaque
                     school.style.display = 'block';
-                    school.classList.add('highlight');
+                    school.classList.add('border-4', 'border-yellow-500', 'bg-yellow-100');
                 } else {
                     // Oculta as demais escolas e remove destaque
                     school.style.display = 'none';
-                    school.classList.remove('highlight');
+                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
                 }
             });
 
             if (found) {
                 searchMessage.classList.add('hidden');
                 // Rola até a primeira escola encontrada
-                const firstMatch = document.querySelector('.school.highlight');
+                const firstMatch = document.querySelector('.school.border-yellow-500');
                 if (firstMatch) {
                     firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
@@ -666,9 +747,17 @@
                 searchMessage.classList.remove('hidden');
                 // Remove destaque de todas as escolas
                 schools.forEach(function (school) {
-                    school.classList.remove('highlight');
+                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
                 });
             }
+        });
+
+        // Funcionalidade do Menu Mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
         });
     </script>
 
