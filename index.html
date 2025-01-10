@@ -190,18 +190,17 @@
             <h1 class="text-5xl md:text-7xl font-bold drop-shadow-lg">Carnaval 2025</h1>
             <p class="mt-4 text-xl md:text-2xl drop-shadow-lg">Rio de Janeiro e São Paulo</p>
             <!-- Barra de Busca -->
-            <div class="mt-8 w-full max-w-md">
-                <form id="searchForm" class="flex">
-                    <input type="text" id="searchInput" placeholder="Digite o nome da escola..."
-                        class="flex-grow p-2 rounded-l-lg focus:outline-none text-gray-800" />
-                    <button type="submit"
-                        class="bg-yellow-500 text-white px-4 py-2 rounded-r-lg hover:bg-yellow-600 transition-colors">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <p id="searchMessage" class="mt-2 text-red-500 hidden">Escola não encontrada. Por favor, verifique o
-                    nome.
-                </p>
+            <div class="mt-6 w-full max-w-md relative">
+                <!-- Input de busca -->
+                <input type="text" id="searchBar" placeholder="Buscar por escola de samba"
+                    class="w-full px-4 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+
+                <!-- Botão "X" para limpar -->
+                <button id="clearBtn"
+                    class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hover:text-red-500 hidden focus:outline-none"
+                    aria-label="Limpar busca">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -740,55 +739,7 @@
     <!-- JavaScript para a Barra de Busca e Menu Mobile -->
     <script>
         // Funcionalidade da Barra de Busca
-        const searchInput = document.getElementById('searchInput');
-        const searchMessage = document.getElementById('searchMessage');
-        const schools = document.querySelectorAll('.school');
 
-        searchInput.addEventListener('input', function () {
-            const query = this.value.trim().toLowerCase();
-
-            if (query === '') {
-                // Se a busca estiver vazia, exibe todas as escolas e remove destaque
-                schools.forEach(function (school) {
-                    school.style.display = 'block';
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                });
-                searchMessage.classList.add('hidden');
-                return;
-            }
-
-            let found = false;
-
-            schools.forEach(function (school) {
-                const schoolName = school.getAttribute('data-name').toLowerCase();
-                if (schoolName.includes(query)) {
-                    found = true;
-                    // Exibe a escola correspondente e adiciona destaque
-                    school.style.display = 'block';
-                    school.classList.add('border-4', 'border-yellow-500', 'bg-yellow-100');
-                } else {
-                    // Oculta as demais escolas e remove destaque
-                    school.style.display = 'none';
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                }
-            });
-
-            if (found) {
-                searchMessage.classList.add('hidden');
-                // Rola até a primeira escola encontrada
-                const firstMatch = document.querySelector('.school.border-yellow-500');
-                if (firstMatch) {
-                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            } else {
-                searchMessage.textContent = "Escola não encontrada. Por favor, verifique o nome.";
-                searchMessage.classList.remove('hidden');
-                // Remove destaque de todas as escolas
-                schools.forEach(function (school) {
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                });
-            }
-        });
 
         // Funcionalidade do Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
@@ -851,6 +802,70 @@
             if (e.target === modal) {
                 modal.classList.add('hidden');
             }
+        });
+    </script>
+    <script>
+        // Elementos da barra de busca
+        const searchBar = document.getElementById('searchBar');
+        const clearBtn = document.getElementById('clearBtn');
+        const schools = document.querySelectorAll('.school');
+
+        // Mostrar ou esconder o botão "X"
+        searchBar.addEventListener('input', () => {
+            if (searchBar.value.trim() !== '') {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            // Lógica de busca dinâmica
+            const query = searchBar.value.trim().toLowerCase();
+            if (query === '') {
+                schools.forEach((school) => {
+                    school.style.display = 'block';
+                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+                });
+            } else {
+                let found = false;
+                schools.forEach((school) => {
+                    const schoolName = school.getAttribute('data-name').toLowerCase();
+                    if (schoolName.includes(query)) {
+                        found = true;
+                        school.style.display = 'block';
+                        school.classList.add('border-4', 'border-yellow-500', 'bg-yellow-100');
+                    } else {
+                        school.style.display = 'none';
+                        school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+                    }
+                });
+
+                // Mostrar mensagem se nenhuma escola for encontrada
+                if (!found) {
+                    const message = document.getElementById('searchMessage');
+                    message.textContent = 'Nenhuma escola encontrada. Verifique o nome.';
+                    message.classList.remove('hidden');
+                } else {
+                    const message = document.getElementById('searchMessage');
+                    message.classList.add('hidden');
+                }
+            }
+        });
+
+        // Evento para limpar o campo de busca ao clicar no botão "X"
+        clearBtn.addEventListener('click', () => {
+            searchBar.value = ''; // Limpa o campo
+            searchBar.focus();    // Retorna o foco ao campo
+            clearBtn.classList.add('hidden'); // Esconde o botão "X"
+
+            // Reinicia a exibição de todas as escolas
+            schools.forEach((school) => {
+                school.style.display = 'block';
+                school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+            });
+
+            // Esconde a mensagem de erro
+            const message = document.getElementById('searchMessage');
+            message.classList.add('hidden');
         });
     </script>
 

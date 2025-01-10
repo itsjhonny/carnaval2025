@@ -188,10 +188,17 @@
                         <h1 class="text-5xl md:text-7xl font-bold">Carnaval 2025</h1>
                         <p class="mt-4 text-xl">Rio de Janeiro</p>
                         <!-- Barra de Pesquisa -->
-                        <div class="mt-6 w-full max-w-md">
+                        <div class="mt-6 w-full max-w-md relative">
+                                <!-- Input de busca -->
                                 <input type="text" id="searchBar" placeholder="Buscar bloco... (nome do bloco, bairro)"
                                         class="w-full px-4 py-2 rounded-md text-black placeholder-black focus:outline-none focus:ring-2 focus:ring-yellow-500">
 
+                                <!-- Ícone de limpar -->
+                                <button id="clearBtn"
+                                        class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hover:text-red-500 focus:outline-none hidden"
+                                        aria-label="Limpar campo de busca">
+                                        <i class="fas fa-times"></i>
+                                </button>
                         </div>
                 </div>
 
@@ -2409,7 +2416,32 @@
                         }
                 });
         </script>
+        <script>
+                // Elementos
+                const searchBar = document.getElementById('searchBar');
+                const clearBtn = document.getElementById('clearBtn');
 
+                // Mostrar ou esconder o botão "X"
+                searchBar.addEventListener('input', () => {
+                        if (searchBar.value.trim() !== '') {
+                                clearBtn.classList.remove('hidden');
+                        } else {
+                                clearBtn.classList.add('hidden'); // Esconde o botão
+                        }
+                });
+
+                // Evento para limpar o campo de busca
+                clearBtn.addEventListener('click', () => {
+                        searchBar.value = ''; // Limpa o conteúdo do input
+                        searchBar.focus();   // Retorna o foco ao input
+                        clearBtn.classList.add('hidden'); // Esconde o botão
+                        document.querySelectorAll('.accordion-content').forEach(content => {
+                                content.classList.remove('active');
+                                content.style.display = 'none'; // Garante que os conteúdos fiquem escondidos
+                                content.previousElementSibling.style.display = 'block'; // Mostra os botões
+                        });
+                });
+        </script>
 
 </body>
 
