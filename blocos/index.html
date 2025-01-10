@@ -137,8 +137,17 @@
 <body>
         <nav class="bg-white shadow fixed w-full z-50">
                 <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-                        <div>
-                                <a href="/" class="text-gray-700 hover:text-yellow-500">Escolas de Samba 2025</a>
+                        <div class="flex items-center space-x-4">
+                                <a href="/" class="text-lg font-medium text-gray-700 hover:text-yellow-500">
+                                        Escolas De Samba 2025
+                                </a>
+
+                                <!-- QR Code Button -->
+                                <button id="qrcode-btn"
+                                        class="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-yellow-500 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                        aria-label="Abrir QR Code">
+                                        <i class="fas fa-qrcode fa-lg"></i>
+                                </button>
                         </div>
                         <div class="hidden md:flex space-x-6">
                                 <a href="#historia" class="text-gray-700 hover:text-yellow-500">História</a>
@@ -158,6 +167,18 @@
                         <a href="#dicas" class="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100">Dicas</a>
                 </div>
         </nav>
+
+        <div id="qrcode-modal"
+                class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h2 class="text-2xl font-bold mb-4">Compartilhe!</h2>
+                        <div id="qrcode-container" class="mb-4"></div>
+                        <button id="close-modal"
+                                class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">
+                                Fechar
+                        </button>
+                </div>
+        </div>
 
         <!-- Cabeçalho -->
         <header class="relative bg-cover bg-center h-72 pt-10"
@@ -2340,6 +2361,53 @@
                 });
 
 
+        </script>
+        <!-- QR Code Script -->
+        <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+        <script>
+                // Elementos
+                const qrcodeBtn = document.getElementById('qrcode-btn');
+                const modal = document.getElementById('qrcode-modal');
+                const closeModal = document.getElementById('close-modal');
+                const qrcodeContainer = document.getElementById('qrcode-container');
+
+                // URL do site atual
+                const siteLink = window.location.href;
+
+                // Função para gerar o QR Code
+                function generateQRCode() {
+                        // Certifique-se de que o contêiner está vazio antes de gerar
+                        qrcodeContainer.innerHTML = '';
+
+                        QRCode.toCanvas(document.createElement('canvas'), siteLink, {
+                                width: 200,
+                                margin: 1,
+                        }, function (error, canvas) {
+                                if (error) {
+                                        console.error('Erro ao gerar o QR Code:', error);
+                                        return;
+                                }
+                                qrcodeContainer.appendChild(canvas);
+                        });
+                }
+
+                // Abrir modal e gerar QR Code
+                qrcodeBtn.addEventListener('click', () => {
+                        generateQRCode();
+                        modal.classList.remove('hidden');
+                });
+
+                // Fechar modal
+                closeModal.addEventListener('click', () => {
+                        modal.classList.add('hidden');
+                });
+
+                // Fechar modal ao clicar fora
+                modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                                modal.classList.add('hidden');
+                        }
+                });
         </script>
 
 
