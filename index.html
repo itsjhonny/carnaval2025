@@ -122,7 +122,8 @@
         }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7332452248090927"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -151,12 +152,22 @@
                 <a href="#historia" class="text-gray-700 hover:text-yellow-500">História</a>
                 <a href="#dicas" class="text-gray-700 hover:text-yellow-500">Dicas</a>
             </div>
+
             <!-- Menu Mobile -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <div class="md:hidden flex items-center space-x-4">
+                <!-- Botão QR Code -->
+                <button id="qrcode-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none"
+                    aria-label="Abrir QR Code">
+                    <i class="fas fa-qrcode fa-lg"></i>
+                </button>
+
+                <!-- Botão Menu -->
+                <button id="menu-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none"
+                    aria-label="Abrir Menu">
                     <i class="fas fa-bars fa-lg"></i>
                 </button>
             </div>
+
         </div>
         <!-- Dropdown Mobile -->
         <div id="menu" class="hidden md:hidden">
@@ -190,6 +201,17 @@
         </div>
     </header>
 
+    <!-- Modal QR Code -->
+    <div id="qrcode-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4">Acesse via QR Code</h2>
+            <div id="qrcode" class="mb-4"></div>
+            <button id="close-modal"
+                class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">
+                Fechar
+            </button>
+        </div>
+    </div>
     <!-- Conteúdo Principal -->
     <main class="container mx-auto px-6 py-12">
 
@@ -777,6 +799,42 @@
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
             });
+        });
+
+
+        // URL ou conteúdo para o QR Code
+        // Elementos
+        const qrcodeBtn = document.getElementById('qrcode-btn');
+        const modal = document.getElementById('qrcode-modal');
+        const closeModal = document.getElementById('close-modal');
+        const qrcodeContainer = document.getElementById('qrcode');
+
+        // Gerar QR Code do link atual
+        const siteLink = window.location.href; // Link dinâmico do site atual
+
+        // Gerar QR Code no modal
+        QRCode.toCanvas(qrcodeContainer, siteLink, {
+            width: 200,
+            margin: 1,
+        }, function (error) {
+            if (error) console.error(error);
+        });
+
+        // Abrir modal
+        qrcodeBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+
+        // Fechar modal
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
         });
     </script>
 
