@@ -2306,25 +2306,18 @@
                 // Função para mostrar todos os blocos e expandir acordeões
                 function showAll() {
                         accordionContents.forEach(content => {
-                                content.style.display = 'block';
                                 content.classList.add('active');
                         });
 
-                        blocos.forEach(bloco => {
-                                bloco.style.display = ''; // Remove estilo inline "display: none"
-                        });
+
                 }
 
                 // Função para esconder todos os blocos e recolher acordeões
                 function hideAll() {
                         accordionContents.forEach(content => {
-                                content.style.display = 'none';
                                 content.classList.remove('active');
                         });
 
-                        blocos.forEach(bloco => {
-                                bloco.style.display = 'none';
-                        });
                 }
 
                 // Adicionar evento ao botão
