@@ -140,21 +140,36 @@
     <!-- Navbar -->
     <nav class="bg-white shadow fixed w-full z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div>
-                <a href="/blocos/" class="text-gray-700 hover:text-yellow-500">Blocos 2025</a>
+            <div class="flex items-center space-x-4">
+                <!-- Link to Blocos 2025 -->
+                <a href="/blocos/" class="text-lg font-medium text-gray-700 hover:text-yellow-500">
+                    Blocos 2025
+                </a>
+
+                <!-- QR Code Button -->
+                <button id="qrcode-btn"
+                    class="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-yellow-500 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                    aria-label="Abrir QR Code">
+                    <i class="fas fa-qrcode fa-lg"></i>
+                </button>
             </div>
+
             <div class="hidden md:flex space-x-6">
                 <a href="#rio-section" class="text-gray-700 hover:text-yellow-500">Rio de Janeiro</a>
                 <a href="#sp-section" class="text-gray-700 hover:text-yellow-500">São Paulo</a>
                 <a href="#historia" class="text-gray-700 hover:text-yellow-500">História</a>
                 <a href="#dicas" class="text-gray-700 hover:text-yellow-500">Dicas</a>
             </div>
+
             <!-- Menu Mobile -->
-            <div class="md:hidden">
-                <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <div class="md:hidden flex items-center space-x-4">
+                <!-- Botão Menu -->
+                <button id="menu-btn" class="flex items-center text-gray-700 hover:text-yellow-500 focus:outline-none"
+                    aria-label="Abrir Menu">
                     <i class="fas fa-bars fa-lg"></i>
                 </button>
             </div>
+
         </div>
         <!-- Dropdown Mobile -->
         <div id="menu" class="hidden md:hidden">
@@ -172,21 +187,32 @@
             <h1 class="text-5xl md:text-7xl font-bold drop-shadow-lg">Carnaval 2025</h1>
             <p class="mt-4 text-xl md:text-2xl drop-shadow-lg">Rio de Janeiro e São Paulo</p>
             <!-- Barra de Busca -->
-            <div class="mt-8 w-full max-w-md">
-                <form id="searchForm" class="flex">
-                    <input type="text" id="searchInput" placeholder="Digite o nome da escola..."
-                        class="flex-grow p-2 rounded-l-lg focus:outline-none text-gray-800" />
-                    <button type="submit"
-                        class="bg-yellow-500 text-white px-4 py-2 rounded-r-lg hover:bg-yellow-600 transition-colors">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <p id="searchMessage" class="mt-2 text-red-500 hidden">Escola não encontrada. Por favor, verifique o
-                    nome.
-                </p>
+            <div class="mt-6 w-full max-w-md relative">
+                <!-- Input de busca -->
+                <input type="text" id="searchBar" placeholder="Buscar por escola de samba"
+                    class="w-full px-4 py-2 rounded-md text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+
+                <!-- Botão "X" para limpar -->
+                <button id="clearBtn"
+                    class="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500 hover:text-red-500 hidden focus:outline-none"
+                    aria-label="Limpar busca">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Modal QR Code -->
+    <div id="qrcode-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4">Compartilhe!</h2>
+            <div id="qrcode-container" class="mb-4"></div>
+            <button id="close-modal"
+                class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none">
+                Fechar
+            </button>
+        </div>
+    </div>
 
     <!-- Conteúdo Principal -->
     <main class="container mx-auto px-6 py-12">
@@ -1000,58 +1026,68 @@
                     </div>
                 </div>
 
-                 <!-- Grupo de Acesso 2 -->
+                <!-- Grupo de Acesso 2 -->
                 <div class="mb-12">
                     <h3 class="text-2xl font-semibold text-purple-600 mb-4">Grupo de Acesso 2</h3>
                     <h4 class="text-xl font-semibold text-red-500 mb-2">Sambódromo do Anhembi</h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Sábado -->
-                        <div data-name="raizes-do-samba" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="raizes-do-samba"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Raízes do Samba</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="imperatriz-da-pauliceia" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="imperatriz-da-pauliceia"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Imperatriz da Paulicéia</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="unidos-do-peruche" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="unidos-do-peruche"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Unidos do Peruche</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="torcida-jovem" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="torcida-jovem"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Torcida Jovem</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="perola-negra" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="perola-negra"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Pérola Negra</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="morro-da-casa-verde" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="morro-da-casa-verde"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Morro da Casa Verde</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="imperador-do-ipiranga" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="imperador-do-ipiranga"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Imperador do Ipiranga</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="primeira-da-cidade-lider" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="primeira-da-cidade-lider"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Primeira da Cidade Líder</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="brinco-da-marquesa" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="brinco-da-marquesa"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Brinco da Marquesa</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
                         </div>
-                        <div data-name="camisa-12" class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+                        <div data-name="camisa-12"
+                            class="school bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
                             <h4 class="text-xl font-bold mb-2 text-purple-500">Camisa 12</h4>
                             <p class="text-gray-600">Data: 22 de Fevereiro de 2025</p>
                             <p class="text-gray-600">Horário: 19:00</p>
@@ -1246,62 +1282,133 @@
     <!-- JavaScript para a Barra de Busca e Menu Mobile -->
     <script>
         // Funcionalidade da Barra de Busca
-        const searchInput = document.getElementById('searchInput');
-        const searchMessage = document.getElementById('searchMessage');
-        const schools = document.querySelectorAll('.school');
 
-        searchInput.addEventListener('input', function () {
-            const query = this.value.trim().toLowerCase();
-
-            if (query === '') {
-                // Se a busca estiver vazia, exibe todas as escolas e remove destaque
-                schools.forEach(function (school) {
-                    school.style.display = 'block';
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                });
-                searchMessage.classList.add('hidden');
-                return;
-            }
-
-            let found = false;
-
-            schools.forEach(function (school) {
-                const schoolName = school.getAttribute('data-name').toLowerCase();
-                if (schoolName.includes(query)) {
-                    found = true;
-                    // Exibe a escola correspondente e adiciona destaque
-                    school.style.display = 'block';
-                    school.classList.add('border-4', 'border-yellow-500', 'bg-yellow-100');
-                } else {
-                    // Oculta as demais escolas e remove destaque
-                    school.style.display = 'none';
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                }
-            });
-
-            if (found) {
-                searchMessage.classList.add('hidden');
-                // Rola até a primeira escola encontrada
-                const firstMatch = document.querySelector('.school.border-yellow-500');
-                if (firstMatch) {
-                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            } else {
-                searchMessage.textContent = "Escola não encontrada. Por favor, verifique o nome.";
-                searchMessage.classList.remove('hidden');
-                // Remove destaque de todas as escolas
-                schools.forEach(function (school) {
-                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
-                });
-            }
-        });
 
         // Funcionalidade do Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const menu = document.getElementById('menu');
+        const menuLinks = document.querySelectorAll('#menu a');
 
         menuBtn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+
+        // Fechar o menu ao clicar em um link
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+    <!-- QR Code Script -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script>
+        // Elementos
+        const qrcodeBtn = document.getElementById('qrcode-btn');
+        const modal = document.getElementById('qrcode-modal');
+        const closeModal = document.getElementById('close-modal');
+        const qrcodeContainer = document.getElementById('qrcode-container');
+
+        // URL do site atual
+        const siteLink = window.location.href;
+
+        // Função para gerar o QR Code
+        function generateQRCode() {
+            // Certifique-se de que o contêiner está vazio antes de gerar
+            qrcodeContainer.innerHTML = '';
+
+            QRCode.toCanvas(document.createElement('canvas'), siteLink, {
+                width: 200,
+                margin: 1,
+            }, function (error, canvas) {
+                if (error) {
+                    console.error('Erro ao gerar o QR Code:', error);
+                    return;
+                }
+                qrcodeContainer.appendChild(canvas);
+            });
+        }
+
+        // Abrir modal e gerar QR Code
+        qrcodeBtn.addEventListener('click', () => {
+            generateQRCode();
+            modal.classList.remove('hidden');
+        });
+
+        // Fechar modal
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+    </script>
+    <script>
+        // Elementos da barra de busca
+        const searchBar = document.getElementById('searchBar');
+        const clearBtn = document.getElementById('clearBtn');
+        const schools = document.querySelectorAll('.school');
+
+        // Mostrar ou esconder o botão "X"
+        searchBar.addEventListener('input', () => {
+            if (searchBar.value.trim() !== '') {
+                clearBtn.classList.remove('hidden');
+            } else {
+                clearBtn.classList.add('hidden');
+            }
+
+            // Lógica de busca dinâmica
+            const query = searchBar.value.trim().toLowerCase();
+            if (query === '') {
+                schools.forEach((school) => {
+                    school.style.display = 'block';
+                    school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+                });
+            } else {
+                let found = false;
+                schools.forEach((school) => {
+                    const schoolName = school.getAttribute('data-name').toLowerCase();
+                    if (schoolName.includes(query)) {
+                        found = true;
+                        school.style.display = 'block';
+                        school.classList.add('border-4', 'border-yellow-500', 'bg-yellow-100');
+                    } else {
+                        school.style.display = 'none';
+                        school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+                    }
+                });
+
+                // Mostrar mensagem se nenhuma escola for encontrada
+                if (!found) {
+                    const message = document.getElementById('searchMessage');
+                    message.textContent = 'Nenhuma escola encontrada. Verifique o nome.';
+                    message.classList.remove('hidden');
+                } else {
+                    const message = document.getElementById('searchMessage');
+                    message.classList.add('hidden');
+                }
+            }
+        });
+
+        // Evento para limpar o campo de busca ao clicar no botão "X"
+        clearBtn.addEventListener('click', () => {
+            searchBar.value = ''; // Limpa o campo
+            searchBar.focus();    // Retorna o foco ao campo
+            clearBtn.classList.add('hidden'); // Esconde o botão "X"
+
+            // Reinicia a exibição de todas as escolas
+            schools.forEach((school) => {
+                school.style.display = 'block';
+                school.classList.remove('border-4', 'border-yellow-500', 'bg-yellow-100');
+            });
+
+            // Esconde a mensagem de erro
+            const message = document.getElementById('searchMessage');
+            message.classList.add('hidden');
         });
     </script>
 
