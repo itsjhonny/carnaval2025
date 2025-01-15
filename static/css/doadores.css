@@ -87,17 +87,17 @@
 }
 
 /* Estilo da Seção de Doação */
-#doar-section {
+#donation-section {
     padding: 40px 20px;
     background-color: #fef9c3;
     /* Cor de fundo festiva */
 }
 
-#doar-section h2 {
+#donation-section h2 {
     color: #f59e0b;
 }
 
-#doar-section p {
+#donation-section p {
     color: #374151;
 }
 
