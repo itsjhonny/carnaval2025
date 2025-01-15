@@ -10,9 +10,6 @@
            alert('Chave Pix copiada!');
        }
 
-       // Copiar chave Pix ao clicar no botão de copiar
-       copyPixBtn.addEventListener('click', copyPixKey);
-
 
 document.addEventListener('DOMContentLoaded', () => {
             const doadoresContainer = document.getElementById('doadores-container');
