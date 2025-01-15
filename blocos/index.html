@@ -84,6 +84,8 @@
                 }
         </style>
 
+        <link href="../static/css/doadores.css" rel="stylesheet">
+
         <!-- Dados Estruturados para Eventos (Schema.org) -->
         <script type="application/ld+json">
     {
@@ -139,7 +141,7 @@
                 <div class="container mx-auto px-6 py-3 flex justify-between items-center">
                         <div class="flex items-center space-x-4">
                                 <a href="/" class="text-lg font-medium text-gray-700 hover:text-yellow-500">
-                                        Escolas De Samba 2025
+                                        Escolas
                                 </a>
 
                                 <!-- QR Code Button -->
@@ -148,6 +150,13 @@
                                         aria-label="Abrir QR Code">
                                         <i class="fas fa-qrcode fa-lg"></i>
                                 </button>
+                                <!-- Botão Doar Centralizado -->
+                                <div class="navbar-center">
+                                        <a href="#doar-section" class="doar-button">
+                                                🤩 Doar!
+                                        </a>
+                                </div>
+
                         </div>
                         <div class="hidden md:flex space-x-6">
                                 <a href="#historia" class="text-gray-700 hover:text-yellow-500">História</a>
@@ -201,7 +210,6 @@
                                 </button>
                         </div>
                 </div>
-
                 </div>
         </header>
 
@@ -2251,6 +2259,46 @@
                                 </p>
                         </div>
                 </section>
+                <!-- Seção de Doação Direta -->
+                <section id="doar-section" class="mb-16">
+                        <h2 class="text-4xl font-bold text-center text-yellow-500 mb-8">🍻 Ajude a Folia!</h2>
+                        <p class="text-center text-gray-700 mb-6">
+                                Quer garantir que a festa nunca pare? Contribua com uma ajudinha para o desenvolvedor
+                                poder curtir o
+                                Carnaval com uma boa breja!
+                        </p>
+                        <div class="flex flex-col items-center">
+                                <div class="pix-container">
+                                        <input type="text" id="pix-key" value="folianaweb@gmail.com" readonly
+                                                class="pix-key">
+                                        <button id="copy-pix" class="copy-button" aria-label="Copiar chave Pix">
+                                                <i class="fas fa-copy"></i>
+                                        </button>
+                                </div>
+                                <p class="mt-4 text-center text-gray-700">
+                                        É fácil: faça um Pix de qualquer valor acima de <strong>R$ 1,00</strong> para a
+                                        chave acima.
+                                        Caso queira aparecer como doador, basta enviar seu nome, Twitter e/ou Instagram
+                                        na mensagem do
+                                        Pix!
+                                </p>
+                        </div>
+                </section>
+                </section>
+
+                <!-- Notificação de Copia -->
+                <div id="copy-notification"
+                        class="hidden fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+                        Chave Pix copiada!
+                </div>
+
+                <!-- Seção de Doadores -->
+                <section id="doadores-section" class="mb-16">
+                        <h2 class="text-4xl font-bold text-center text-green-600 mb-8">🤝 Doadores</h2>
+                        <div id="doadores-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Doadores serão inseridos aqui via JavaScript -->
+                        </div>
+                </section>
         </main>
 
         <!-- Rodapé -->
@@ -2334,7 +2382,11 @@
                 // Função para mostrar todos os blocos e expandir acordeões
                 function showAll() {
                         accordionContents.forEach(content => {
+                                content.style.display = null;
                                 content.classList.add('active');
+                        });
+                        blocos.forEach(bloco => {
+                                bloco.style.display = null;
                         });
 
 
@@ -2369,53 +2421,6 @@
 
 
         </script>
-        <!-- QR Code Script -->
-        <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-        <script>
-                // Elementos
-                const qrcodeBtn = document.getElementById('qrcode-btn');
-                const modal = document.getElementById('qrcode-modal');
-                const closeModal = document.getElementById('close-modal');
-                const qrcodeContainer = document.getElementById('qrcode-container');
-
-                // URL do site atual
-                const siteLink = window.location.href;
-
-                // Função para gerar o QR Code
-                function generateQRCode() {
-                        // Certifique-se de que o contêiner está vazio antes de gerar
-                        qrcodeContainer.innerHTML = '';
-
-                        QRCode.toCanvas(document.createElement('canvas'), siteLink, {
-                                width: 200,
-                                margin: 1,
-                        }, function (error, canvas) {
-                                if (error) {
-                                        console.error('Erro ao gerar o QR Code:', error);
-                                        return;
-                                }
-                                qrcodeContainer.appendChild(canvas);
-                        });
-                }
-
-                // Abrir modal e gerar QR Code
-                qrcodeBtn.addEventListener('click', () => {
-                        generateQRCode();
-                        modal.classList.remove('hidden');
-                });
-
-                // Fechar modal
-                closeModal.addEventListener('click', () => {
-                        modal.classList.add('hidden');
-                });
-
-                // Fechar modal ao clicar fora
-                modal.addEventListener('click', (e) => {
-                        if (e.target === modal) {
-                                modal.classList.add('hidden');
-                        }
-                });
-        </script>
         <script>
                 // Elementos
                 const searchBar = document.getElementById('searchBar');
@@ -2423,10 +2428,12 @@
 
                 // Mostrar ou esconder o botão "X"
                 searchBar.addEventListener('input', () => {
+                        toggleAllBtn.classList.add('hidden');
                         if (searchBar.value.trim() !== '') {
                                 clearBtn.classList.remove('hidden');
                         } else {
-                                clearBtn.classList.add('hidden'); // Esconde o botão
+                                clearBtn.classList.add('hidden');
+                                toggleAllBtn.classList.remove('hidden');
                         }
                 });
 
@@ -2435,6 +2442,7 @@
                         searchBar.value = ''; // Limpa o conteúdo do input
                         searchBar.focus();   // Retorna o foco ao input
                         clearBtn.classList.add('hidden'); // Esconde o botão
+                        toggleAllBtn.classList.remove('hidden');
                         document.querySelectorAll('.accordion-content').forEach(content => {
                                 content.classList.remove('active');
                                 content.style.display = 'none'; // Garante que os conteúdos fiquem escondidos
@@ -2442,6 +2450,14 @@
                         });
                 });
         </script>
+
+        <!-- Menu Mobile -->
+        <script src="../static/js/mobile_menu.js"></script>
+        <!-- QR Code Script -->
+        <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+        <script src="../static/js/qrcode_share.js"> </script>
+        <!-- Script para Carregar Doadores -->
+        <script src="../static/js/doadores.js"></script>
 
 </body>
 

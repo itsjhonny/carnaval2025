@@ -1,0 +1,118 @@
+  /* Estilo do botão Doar centralizado na navbar */
+  .navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.doar-button {
+    background-color: #f59e0b;
+    color: white;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.doar-button:hover {
+    background-color: #d97706;
+}
+
+/* Estilo para o campo de Pix */
+.pix-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pix-key {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    text-align: center;
+    background-color: #f9fafb;
+}
+
+.copy-button {
+    background-color: #4ade80;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #22c55e;
+}
+
+/* Estilo da seção de Doadores */
+#doadores-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+#doadores-section h2 {
+    color: #4ade80;
+}
+
+.donor-card {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb;
+}
+
+.donor-info {
+    margin-left: 16px;
+}
+
+.social-icons a {
+    margin-right: 8px;
+    color: #374151;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #f59e0b;
+}
+
+/* Estilo da Seção de Doação */
+#doar-section {
+    padding: 40px 20px;
+    background-color: #fef9c3;
+    /* Cor de fundo festiva */
+}
+
+#doar-section h2 {
+    color: #f59e0b;
+}
+
+#doar-section p {
+    color: #374151;
+}
+
+/* Notificação de Copia */
+#copy-notification {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#copy-notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#doadores-section {
+    display: none;
+}
