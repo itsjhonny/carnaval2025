@@ -1252,38 +1252,37 @@
             <section id="doar-section" class="mb-16">
                 <h2 class="text-4xl font-bold text-center text-yellow-500 mb-8">🍻 Ajude a Folia!</h2>
                 <p class="text-center text-gray-700 mb-6">
-                    Quer garantir que a festa nunca pare? Contribua com uma ajudinha para o desenvolvedor poder curtir o
-                    Carnaval com uma boa breja!
+                    Quer garantir que a festa nunca pare? Mande um help pro desenvolvedor e vamos curtir o Carnaval com
+                    muita breja e alegria!
                 </p>
                 <div class="flex flex-col items-center">
-                    <div class="pix-container">
-                        <input type="text" id="pix-key" value="folianaweb@gmail.com" readonly class="pix-key">
-                        <button id="copy-pix" class="copy-button" aria-label="Copiar chave Pix">
-                            <i class="fas fa-copy"></i>
-                        </button>
-                    </div>
-                    <p class="mt-4 text-center text-gray-700">
-                        É fácil: faça um Pix de qualquer valor acima de <strong>R$ 1,00</strong> para a chave acima.
-                        Caso queira aparecer como doador, basta enviar seu nome, Twitter e/ou Instagram na mensagem do
-                        Pix!
+                    <!-- Link para gerar o PIX copia e cola -->
+                    <a href="https://livepix.gg/folianaweb" target="_blank"
+                        class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded flex items-center space-x-2">
+                        <span>Fazer Doação</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <p class="mt-4 text-center text-gray-700 px-4">
+                        Para dar aquela moral, é moleza!<br>
+                        Clica no botão acima, escolhe o valor e pronto: PIX "copia e cola" gerado na hora.<br>
+                        Quer brilhar como doador? É só mandar seu nome, Twitter e/ou Instagram na mensagem!
                     </p>
                 </div>
             </section>
-        </section>
 
-        <!-- Notificação de Copia -->
-        <div id="copy-notification"
-            class="hidden fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
-            Chave Pix copiada!
-        </div>
-
-        <!-- Seção de Doadores -->
-        <section id="doadores-section" class="mb-16">
-            <h2 class="text-4xl font-bold text-center text-green-600 mb-8">🤝 Doadores</h2>
-            <div id="doadores-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Doadores serão inseridos aqui via JavaScript -->
+            <!-- Notificação de Copia -->
+            <div id="copy-notification"
+                class="hidden fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+                Chave Pix copiada!
             </div>
-        </section>
+
+            <!-- Seção de Doadores -->
+            <section id="doadores-section" class="mb-16">
+                <h2 class="text-4xl font-bold text-center text-green-600 mb-8">🤝 Doadores</h2>
+                <div id="doadores-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Doadores serão inseridos aqui via JavaScript -->
+                </div>
+            </section>
     </main>
 
     <!-- Modal QR Code -->
