@@ -82,6 +82,25 @@
                         max-width: 100%;
                         height: auto;
                 }
+
+                .accordion-content .block-list li {
+                        cursor: pointer;
+                        /* Indica que o item é clicável */
+                        color: #1a0dab;
+                        /* Azul padrão de links */
+                        text-decoration: underline;
+                        /* Sublinhado para simular link */
+                        transition: color 0.3s ease, background-color 0.3s ease;
+                        /* Transições suaves */
+                }
+
+                /* Efeito ao passar o mouse sobre o item */
+                .accordion-content .block-list li:hover {
+                        color: #551a8b;
+                        /* Azul mais escuro ao hover */
+                        background-color: #f0f0f0;
+                        /* Fundo sutil ao passar o mouse */
+                }
         </style>
 
         <link href="../static/css/doadores.css" rel="stylesheet">
@@ -219,7 +238,8 @@
                 <!-- Seção Blocos de Rua -->
                 <section id="blocos-section" class="mb-16">
                         <h2 class="text-4xl font-bold text-center text-blue-600 mb-8">🎉 Blocos de Rua - RJ</h2>
-                        <div class="text-center mb-4">
+                        <p>Ao clicar no endereço, o Google Maps abrirá com a localização marcada</p>
+                        <div class="text-center mb-5 mt-5">
                                 <button id="toggleAllBtn"
                                         class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
                                         Visualizar Todos
@@ -228,136 +248,112 @@
 
                         <!-- Accordion Blocos -->
                         <div>
-                                <!-- 17º de Janeiro de 2025 – Sexta-Feira -->
                                 <div class="mb-4">
                                         <button
                                                 class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
-                                                📅 17º de Janeiro de 2025 – Sexta-Feira
+                                                📅 16 de Janeiro de 2025 – Quinta-feira
                                         </button>
                                         <div class="accordion-content p-4 bg-gray-100">
                                                 <ul class="block-list">
-                                                        <li><strong>Centro:</strong> Trombloco - <em>Garagem Delas, Rua
-                                                                        da Carioca 87</em> - 21h00</li>
-                                                        <li><strong>Glória:</strong> Bloco Caramuela - <em>Forró da
-                                                                        Glória, Rua Santo Amaro 110</em> - 20h00</li>
-                                                </ul>
-                                        </div>
-                                </div>
-
-                                <!-- 18º de Janeiro de 2025 – Sábado -->
-                                <div class="mb-4">
-                                        <button
-                                                class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
-                                                📅 18º de Janeiro de 2025 – Sábado
-                                        </button>
-                                        <div class="accordion-content p-4 bg-gray-100">
-                                                <h3 class="font-semibold mb-2">Cortejo</h3>
-                                                <ul class="block-list mb-4">
-                                                        <li>Concentração 09h30 / Cortejo 11h00: Oi Tavinho, Local à
-                                                                Divulgar.</li>
-                                                </ul>
-
-                                                <h3 class="font-semibold mb-2">PARADO</h3>
-                                                <ul class="block-list">
-                                                        <li>12h30: Orquestra Circônica, Favela da Maré, Conjunto
-                                                                Esperança Maré, Maré.</li>
-                                                        <li>16h00: Hocus Blocus com a Nova Bad, Sede da Junta Local, Rua
-                                                                do Mercado, Centro.</li>
-                                                        <li>16h00: Desliga da Justiça + Cordão da Tia Juca + Orquestra
-                                                                do Beco + NMGD, Espaço Cultural Cachaça Axé, R. Miguel
-                                                                Couto 125, Centro.</li>
-                                                        <li>17h00: Orquestra Circônica, Museu Darcy Ribeiro, Rua Cento e
-                                                                Dezenove, Ponta Negra, Maricá.</li>
-                                                        <li>18h00: Bloco Ulalaô + Banda Profana + Crackzin, Rua da
-                                                                Lavradio 168, Lapa.</li>
-                                                        <li>20h00: Love Songs no Samba das Emocionadas, Área de Lazer,
-                                                                Morro do Pinto.</li>
-                                                </ul>
-                                        </div>
-                                </div>
-
-                                <!-- 19º de Janeiro de 2025 – Domingo -->
-                                <div class="mb-4">
-                                        <button
-                                                class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
-                                                📅 19º de Janeiro de 2025 – Domingo
-                                        </button>
-                                        <div class="accordion-content p-4 bg-gray-100">
-                                                <h3 class="font-semibold mb-2">PARADO</h3>
-                                                <ul class="block-list">
-                                                        <li>13h00: Orquestra Circônica, Morro da Mineira, Arena Mineira,
-                                                                Catumbi.</li>
-                                                        <li>15h00: Caetano Virado, Rua Moraes e Vale, Lapa.</li>
-                                                        <li>16h00: Planta na Mente e Manga Sativa, Areninha Cultural
-                                                                João Bosco, Av. São Félix 601, Vista Alegre.</li>
-                                                        <li>16h00: Orquestra Voadora, Fundição Progresso, Rua dos Arcos
-                                                                24, Lapa.</li>
-                                                        <li>16h00: Orquestra Circônica, Pedra do Sal, Rua Argemiro
-                                                                Bulcão, Saúde.</li>
-                                                        <li>19h00: Crack de Despedida do Aipim, Local a ser divulgado.
+                                                        <li><strong>Centro:</strong> A Rocha da Gávea, Carioca da Gema -
+                                                                <em>Avenida Mem de Sá 79, Lapa</em> - 19h30. Ingressos
+                                                                na Sympla 🎟️💲
                                                         </li>
                                                 </ul>
                                         </div>
                                 </div>
 
-                                <!-- 20º de Janeiro de 2025 – Segunda-feira -->
                                 <div class="mb-4">
                                         <button
                                                 class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
-                                                📅 20º de Janeiro de 2025 – Segunda-feira
+                                                📅 17 de Janeiro de 2025 – Sexta-feira
                                         </button>
                                         <div class="accordion-content p-4 bg-gray-100">
-                                                <h3 class="font-semibold mb-2">PARADO</h3>
                                                 <ul class="block-list">
-                                                        <li>14h00: La Belle Bloco, Belle Époque Discos e Livros, Rua
-                                                                Soares 50, Méier.</li>
-                                                        <li>19h00: Ensaio do Cordão do Boitatá, Sede do Bola Preta, Rua
-                                                                da Relação 3, Centro.</li>
+                                                        <li><strong>Centro:</strong> Trombloco, Garagem Delas - <em>Rua
+                                                                        da Carioca 87, Centro</em> - 21h00.</li>
+                                                        <li><strong>Zona Sul:</strong> Bloco Caramuela, Forró da Glória
+                                                                - <em>Rua Santo Amaro 110, Glória</em> - 19h00. De graça
+                                                                até as 20h 🆓</li>
                                                 </ul>
                                         </div>
                                 </div>
 
-
-                                <!-- 1º de Fevereiro de 2025 – Sábado -->
                                 <div class="mb-4">
                                         <button
                                                 class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
-                                                📅 1º de Fevereiro de 2025 – Sábado
+                                                📅 18 de Janeiro de 2025 – Sábado
                                         </button>
                                         <div class="accordion-content p-4 bg-gray-100">
                                                 <ul class="block-list">
-                                                        <li><strong>Centro:</strong> Ensaios de Verão: NossoBloco
-                                                                convida Batuquebato - <em>Ateliê
-                                                                        Bonifácio, Rua do Senado, 47</em> - 10h30</li>
-                                                        <li><strong>Centro:</strong> Bloco na Pedra do Sal - <em>Rua
-                                                                        Argemiro Bulcão, Saúde</em> -
-                                                                14h</li>
-                                                        <li><strong>Centro:</strong> Bloco Divas - <em>Rua Imperatriz
-                                                                        Leopoldina, 55</em> - 18h</li>
-                                                        <li><strong>Zona Sul:</strong> Baque Mulher RJ - <em>Posto 0,
-                                                                        Aterro do Flamengo</em> - 16h
+                                                        <li><strong>Maré:</strong> Orquestra Circônica - <em>Favela da
+                                                                        Maré, Conjunto Esperança Maré, Maré</em> -
+                                                                12h30.</li>
+                                                        <li><strong>Centro:</strong> Hocus Blocus com a Nova Bad -
+                                                                <em>Sede da Junta Local, Rua do Mercado, Centro</em> -
+                                                                16h00.
                                                         </li>
-                                                        <li><strong>Grande Tijuca:</strong> Banda da Saens Peña -
-                                                                <em>Praça Saens Peña</em> - 15h
+                                                        <li><strong>Centro:</strong> Desliga da Justiça + Cordão da Tia
+                                                                Juca + Orquestra do Beco + NMGD - <em>Espaço Cultural
+                                                                        Cachaça Axé, R. Miguel Couto 125, Centro</em> -
+                                                                16h00.</li>
+                                                        <li><strong>Maricá:</strong> Orquestra Circônica - <em>Museu
+                                                                        Darcy Ribeiro, Rua Cento e Dezenove, Ponta
+                                                                        Negra, Maricá</em> - 17h00.</li>
+                                                        <li><strong>Lapa:</strong> Bloco Ulalaô + Banda Profana +
+                                                                Crackzin - <em>Rua da Lavradio 168, Lapa</em> - 18h00.
                                                         </li>
-                                                        <li><strong>Grande Tijuca:</strong> Nem Muda Nem Sai de Cima -
-                                                                <em>Avenida Maracanã, 838,
-                                                                        Tijuca</em> - 16h
-                                                        </li>
-                                                        <li><strong>Zona Norte:</strong> Carnaval e Bloco Folia do Largo
-                                                                do Sapê - <em>Rua Nuassu,
-                                                                        39, Bento Ribeiro</em> - 16h</li>
-                                                        <li><strong>Zona Norte:</strong> Ensaios Aberto Planta na Mente
-                                                                com Sociedade Manga Sativa -
-                                                                <em>Praça da Oliveira Belo, Rua da Tranquilidade, S/N,
-                                                                        Vila da Penha</em> - 16h
-                                                        </li>
-                                                        <li><strong>Zona Oeste:</strong> Bloco da Sorveteria - <em>Rua
-                                                                        Barros de Alarcão, 370, Pedra
-                                                                        de Guaratiba</em> - 16h</li>
+                                                        <li><strong>Morro do Pinto:</strong> Love Songs no Samba das
+                                                                Emocionadas - <em>Área de Lazer, Morro do Pinto</em> -
+                                                                20h00.</li>
                                                 </ul>
                                         </div>
                                 </div>
+
+                                <div class="mb-4">
+                                        <button
+                                                class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
+                                                📅 19 de Janeiro de 2025 – Domingo
+                                        </button>
+                                        <div class="accordion-content p-4 bg-gray-100">
+                                                <ul class="block-list">
+                                                        <li><strong>Catumbi:</strong> Orquestra Circônica - <em>Morro da
+                                                                        Mineira, Arena Mineira, Catumbi</em> - 13h00.
+                                                        </li>
+                                                        <li><strong>Lapa:</strong> Caetano Virado - <em>Rua Moraes e
+                                                                        Vale, Lapa</em> - 15h00.</li>
+                                                        <li><strong>Vista Alegre:</strong> Planta na Mente e Manga
+                                                                Sativa - <em>Areninha Cultural João Bosco, Av. São Félix
+                                                                        601, Vista Alegre</em> - 16h00.</li>
+                                                        <li><strong>Lapa:</strong> Orquestra Voadora - <em>Fundição
+                                                                        Progresso, Rua dos Arcos 24, Lapa</em> - 16h00.
+                                                        </li>
+                                                        <li><strong>Centro:</strong> Orquestra Circônica - <em>Pedra do
+                                                                        Sal, Rua Argemiro Bulcão, Saúde</em> - 16h00.
+                                                        </li>
+                                                        <li><strong>Local a ser divulgado:</strong> Crack de Despedida
+                                                                do Aipim - <em>Local a ser divulgado</em> - 19h00.</li>
+                                                </ul>
+                                        </div>
+                                </div>
+
+                                <div class="mb-4">
+                                        <button
+                                                class="accordion-button bg-yellow-500 text-white w-full py-2 px-4 text-left font-bold">
+                                                📅 20 de Janeiro de 2025 – Segunda-feira
+                                        </button>
+                                        <div class="accordion-content p-4 bg-gray-100">
+                                                <ul class="block-list">
+                                                        <li><strong>Méier:</strong> La Belle Bloco, Belle Époque Discos
+                                                                e Livros - <em>Rua Soares 50, Méier</em> - 14h00.</li>
+                                                        <li><strong>Centro:</strong> Ensaio do Cordão do Boitatá -
+                                                                <em>Sede do Bola Preta, Rua da Relação 3, Centro</em> -
+                                                                19h00.
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                </div>
+
 
                                 <!-- 2 de Fevereiro de 2025 – Domingo -->
                                 <div class="mb-4">
@@ -2366,7 +2362,8 @@
                                 </a>
                                 <p class="mt-4 text-center text-gray-700 px-4">
                                         Para dar aquela moral, é moleza!<br>
-                                        Só clicar no botão acima, escolher o valor (mínimo de 1 realzão) e pronto: PIX "copia e cola" gerado
+                                        Só clicar no botão acima, escolher o valor (mínimo de 1 realzão) e pronto: PIX
+                                        "copia e cola" gerado
                                         na
                                         hora.<br>
                                         Quer brilhar como doador? É só mandar seu nome, Twitter e/ou Instagram na
@@ -2523,6 +2520,8 @@
                 });
         </script>
 
+        <!-- Google Maps -->
+        <script src="../static/js/redirect_blocs_google_map.js"></script>
         <!-- Menu Mobile -->
         <script src="../static/js/mobile_menu.js"></script>
         <!-- QR Code Script -->
