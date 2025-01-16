@@ -1,44 +1,5 @@
 [
     {
-        "name": "João Silva",
-        "twitter": "@joaosilva",
-        "instagram": "@joaosilva_insta"
-    },
-    {
-        "name": "Maria Oliveira",
-        "twitter": "@mariaoliveira"
-    },
-    {
-        "name": "Carlos Souza",
-        "instagram": "@carlossouza"
-    },
-    {
-        "name": "Ana Pereira",
-        "twitter": "@anapereira",
-        "instagram": "@anapereira_ig"
-    },
-    {
-        "name": "Pedro Santos",
-        "twitter": "@pedrosantos"
-    },
-    {
-        "name": "Luana Costa",
-        "instagram": "@luanacosta"
-    },
-    {
-        "name": "Ricardo Gomes",
-        "twitter": "@ricardogomes",
-        "instagram": "@ricardogomes_ig"
-    },
-    {
-        "name": "Fernanda Lima"
-    },
-    {
-        "name": "Bruno Rocha",
-        "twitter": "@brunorocha"
-    },
-    {
-        "name": "Camila Martins",
-        "instagram": "@camilamartins"
+        "name": "Simoes"
     }
 ]
