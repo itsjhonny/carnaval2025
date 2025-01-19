@@ -169,13 +169,19 @@
                                         aria-label="Abrir QR Code">
                                         <i class="fas fa-qrcode fa-lg"></i>
                                 </button>
-                                <!-- Botão Doar Centralizado -->
-                                <div class="navbar-center">
-                                        <a href="#donation-section" class="doar-button">
-                                                🤩 Doar!
-                                        </a>
-                                </div>
+                                <!-- Compartilhe Button -->
+                                <button id="share-btn"
+                                        class="flex items-center justify-center w-10 h-10 text-gray-700 hover:text-yellow-500 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                                        aria-label="Compartilhar">
+                                        <i class="fas fa-share-alt fa-lg"></i>
+                                </button>
 
+                        </div>
+                        <!-- Botão Doar Centralizado -->
+                        <div class="navbar-center">
+                                <a href="#donation-section" class="doar-button">
+                                        🤩 Doar!
+                                </a>
                         </div>
                         <div class="hidden md:flex space-x-6">
                                 <a href="#history" class="text-gray-700 hover:text-yellow-500">História</a>
@@ -362,13 +368,16 @@
                                                         <li><strong>Centro:</strong> Orquestra Circônica - <em>Pedra do
                                                                         Sal, Rua Argemiro Bulcão, Saúde</em> - 16h00.
                                                         </li>
-                                                        <li><strong>Glória:</strong> Universo Spanta 2025 - <em>Avenida Infante Dom Henrique, S/N - Glória</em> - 16h00.
+                                                        <li><strong>Glória:</strong> Universo Spanta 2025 - <em>Avenida
+                                                                        Infante Dom Henrique, S/N - Glória</em> - 16h00.
                                                         </li>
                                                         <li><strong>Glória:</strong> Crack De Despedida do AIPIM -
                                                                 <em>Monumento a Pedro Alveres Cabral</em> - 17h00.
                                                         </li>
-                                                        <li><strong>Cosme Velho:</strong> Samba: Cozinha Arrumada, Casa de Marimbondo e Me Encontra lá – Espaço Corcovado -
-                                                                <em>Espaço Corcovado - R. Conselheiro Lampreia, 169 - Cosme Velho</em> - 20h00.
+                                                        <li><strong>Cosme Velho:</strong> Samba: Cozinha Arrumada, Casa
+                                                                de Marimbondo e Me Encontra lá – Espaço Corcovado -
+                                                                <em>Espaço Corcovado - R. Conselheiro Lampreia, 169 -
+                                                                        Cosme Velho</em> - 20h00.
                                                         </li>
                                                 </ul>
                                         </div>
@@ -2565,6 +2574,8 @@
         <!-- QR Code Script -->
         <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
         <script src="../static/js/qrcode_share.js"> </script>
+        <!-- Share -->
+        <script src="../static/js/share.js"></script>
         <!-- Script para Carregar Doadores -->
         <script src="../static/js/doadores.js"></script>
 
