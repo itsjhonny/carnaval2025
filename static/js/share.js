@@ -2,8 +2,8 @@ document.getElementById('share-btn').addEventListener('click', async () => {
     if (navigator.share) {
         try {
             await navigator.share({
-                title: 'Blocos 2025',
-                text: 'Confira o evento Blocos 2025! 🥳',
+                title: 'Blocos E escolas de Samba 2025',
+                text: 'Confira a programação do carnaval 2025 - Blocos e escolas de samba',
                 url: window.location.href, // URL atual
             });
             console.log('Compartilhamento realizado com sucesso!');
